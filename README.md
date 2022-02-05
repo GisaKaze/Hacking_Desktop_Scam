@@ -1,2 +1,2 @@
-# Color_game
-A confusing color game using tkinter
+# Color Game
+A very confusing color game ever using tkinter

