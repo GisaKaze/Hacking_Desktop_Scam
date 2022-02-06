@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Visual game
+Comment=Visual game
+Exec=/usr/bin/visual-game
+Icon=visual-game
+Type=Application
+StartupNotify=true
+Terminal=false
+StartupWMClass=visual-game
+Categories=Games;Entertainment;
+Keywords=visual;visualgame;visual-game;games;play;

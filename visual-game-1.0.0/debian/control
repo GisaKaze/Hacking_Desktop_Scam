@@ -1,0 +1,14 @@
+Source: visual-game
+Section: python
+Maintainer: Gisa Kaze Fredson <fredson.coder@gmail.com>
+Build-Depends: debhelper (>= 7),
+               python3 (>= 3.5)
+Standards-Version: 4.5.1
+Priority: optional
+
+Package: visual-game
+Architecture: all
+Section: python
+Depends: python3 (>=3.5), ${misc:Depends}
+Description: A simple visual-game program to play with colors and how to package a
+ Python 3 script as a deb file

@@ -1,0 +1,4 @@
+visual-game usr/bin/
+visual-game usr/share/man/man1/
+visual-game.svg usr/share/pixmaps/
+visual-game.desktop usr/share/applications/
